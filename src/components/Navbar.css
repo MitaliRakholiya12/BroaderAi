@@ -1,0 +1,350 @@
+/* Modern Premium Navbar Styles */
+.navbar {
+  
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  transition: all 0.5s ease;
+  width: 95%;
+  max-width: 96rem;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+/* 
+.navbar.scrolled {
+  width: 95%;
+  max-width: 72rem;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(30, 58, 138, 0.2);
+} */
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+
+/* Logo Section */
+.logo-section {
+  
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logo-link:hover {
+  transform: scale(1.02);
+}
+
+.logo-icon-wrapper {
+  position: relative;
+}
+
+.logo-link:hover .logo-icon-bg {
+  opacity: 0.5;
+}
+
+/* .logo-icon-container {
+  position: relative;
+  background: linear-gradient(to right, #1e3a8a, #1d4ed8);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  width: 100px;
+} */
+
+.logo-icon {
+  height: 45px;
+  object-fit: contain;
+}
+  
+
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #ffffff, #d1d5db);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (min-width: 1024px) {
+  .desktop-nav {
+    display: flex;
+  }
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link.active {
+  color: white;
+  background: linear-gradient(to right, rgba(30, 58, 138, 0.5), rgba(29, 78, 216, 0.5));
+}
+
+.nav-link-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(30, 58, 138, 0.5), rgba(29, 78, 216, 0.5));
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: scale(0.95);
+}
+
+.nav-link:hover .nav-link-bg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-link-text {
+  position: relative;
+  z-index: 10;
+}
+
+/* CTA Button */
+.cta-section {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .cta-section {
+    display: block;
+  }
+}
+
+.cta-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #1e3a8a, #1d4ed8);
+  padding: 0.75rem 2rem;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: all 0.5s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
+}
+
+.cta-button-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #1d4ed8, #3b82f6);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.cta-button:hover .cta-button-bg {
+  opacity: 1;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover .cta-content {
+  transform: translateX(0.25rem);
+}
+
+.cta-text {
+  transition: transform 0.3s ease;
+}
+
+.cta-icon {
+  height: 1rem;
+  width: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover .cta-icon {
+  transform: translateX(0.25rem);
+}
+
+/* Shimmer Effect */
+.shimmer-container {
+  position: absolute;
+  inset: 0;
+  top: -0.5rem;
+  bottom: -0.5rem;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.cta-button:hover .shimmer-container {
+  opacity: 1;
+}
+
+.shimmer {
+  height: 100%;
+  width: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-12deg);
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(400%) skewX(-12deg);
+  }
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mobile-menu-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 1024px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
+
+.mobile-menu-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: block;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+.mobile-menu.open {
+  max-height: 24rem;
+  opacity: 1;
+}
+
+.mobile-menu.closed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.mobile-menu-content {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-link.active {
+  color: white;
+  background: linear-gradient(to right, rgba(30, 58, 138, 0.5), rgba(29, 78, 216, 0.5));
+}
+
+.mobile-cta {
+  padding-top: 1rem;
+}
+
+.mobile-cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  background: linear-gradient(to right, #1e3a8a, #1d4ed8);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.mobile-cta-button:hover {
+  background: linear-gradient(to right, #1d4ed8, #3b82f6);
+}
+
+.mobile-cta-icon {
+  height: 1rem;
+  width: 1rem;
+}

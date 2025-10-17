@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <style>
+    .node {
+      fill: #5e35b1;
+      stroke: #7c4dff;
+      stroke-width: 2;
+    }
+    .connection {
+      stroke: #7c4dff;
+      stroke-width: 1.5;
+      stroke-opacity: 0.6;
+    }
+    .pulse {
+      fill: #7c4dff;
+      transform-origin: center;
+      animation: pulse 3s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0; }
+      100% { transform: scale(0); opacity: 1; }
+    }
+    .node-1 { animation: float 8s infinite; }
+    .node-2 { animation: float 7s infinite 1s; }
+    .node-3 { animation: float 9s infinite 2s; }
+    .node-4 { animation: float 6s infinite 3s; }
+    .node-5 { animation: float 10s infinite 4s; }
+    .node-6 { animation: float 8s infinite 5s; }
+    .node-7 { animation: float 7s infinite 6s; }
+    .node-8 { animation: float 9s infinite 7s; }
+    
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(10px, 10px); }
+      50% { transform: translate(0, 20px); }
+      75% { transform: translate(-10px, 10px); }
+      100% { transform: translate(0, 0); }
+    }
+    
+    .data-flow {
+      stroke-dasharray: 10;
+      animation: flow 3s linear infinite;
+    }
+    
+    @keyframes flow {
+      to { stroke-dashoffset: -30; }
+    }
+  </style>
+  
+  <!-- Background gradient -->
+  <rect width="100%" height="100%" fill="url(#bg-gradient)" opacity="0.7"/>
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8f9fa" />
+      <stop offset="100%" stop-color="#e9ecef" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Neural network nodes and connections -->
+  <g transform="translate(400, 300)">
+    <!-- Nodes -->
+    <circle class="node node-1" cx="-150" cy="-100" r="15" />
+    <circle class="node node-2" cx="-150" cy="0" r="15" />
+    <circle class="node node-3" cx="-150" cy="100" r="15" />
+    
+    <circle class="node node-4" cx="0" cy="-70" r="15" />
+    <circle class="node node-5" cx="0" cy="0" r="15" />
+    <circle class="node node-6" cx="0" cy="70" r="15" />
+    
+    <circle class="node node-7" cx="150" cy="-50" r="15" />
+    <circle class="node node-8" cx="150" cy="50" r="15" />
+    
+    <!-- Connections -->
+    <line class="connection data-flow" x1="-150" y1="-100" x2="0" y2="-70" />
+    <line class="connection data-flow" x1="-150" y1="-100" x2="0" y2="0" />
+    <line class="connection data-flow" x1="-150" y1="-100" x2="0" y2="70" />
+    
+    <line class="connection data-flow" x1="-150" y1="0" x2="0" y2="-70" />
+    <line class="connection data-flow" x1="-150" y1="0" x2="0" y2="0" />
+    <line class="connection data-flow" x1="-150" y1="0" x2="0" y2="70" />
+    
+    <line class="connection data-flow" x1="-150" y1="100" x2="0" y2="-70" />
+    <line class="connection data-flow" x1="-150" y1="100" x2="0" y2="0" />
+    <line class="connection data-flow" x1="-150" y1="100" x2="0" y2="70" />
+    
+    <line class="connection data-flow" x1="0" y1="-70" x2="150" y2="-50" />
+    <line class="connection data-flow" x1="0" y1="-70" x2="150" y2="50" />
+    
+    <line class="connection data-flow" x1="0" y1="0" x2="150" y2="-50" />
+    <line class="connection data-flow" x1="0" y1="0" x2="150" y2="50" />
+    
+    <line class="connection data-flow" x1="0" y1="70" x2="150" y2="-50" />
+    <line class="connection data-flow" x1="0" y1="70" x2="150" y2="50" />
+    
+    <!-- Pulse animations -->
+    <circle class="pulse" cx="-150" cy="-100" r="5">
+      <animate attributeName="opacity" values="1;0;1" dur="4s" repeatCount="indefinite" begin="0s" />
+    </circle>
+    <circle class="pulse" cx="-150" cy="0" r="5">
+      <animate attributeName="opacity" values="1;0;1" dur="4s" repeatCount="indefinite" begin="0.5s" />
+    </circle>
+    <circle class="pulse" cx="-150" cy="100" r="5">
+      <animate attributeName="opacity" values="1;0;1" dur="4s" repeatCount="indefinite" begin="1s" />
+    </circle>
+    
+    <circle class="pulse" cx="0" cy="-70" r="5">
+      <animate attributeName="opacity" values="1;0;1" dur="4s" repeatCount="indefinite" begin="1.5s" />
+    </circle>
+    <circle class="pulse" cx="0" cy="0" r="5">
+      <animate attributeName="opacity" values="1;0;1" dur="4s" repeatCount="indefinite" begin="2s" />
+    </circle>
+    <circle class="pulse" cx="0" cy="70" r="5">
+      <animate attributeName="opacity" values="1;0;1" dur="4s" repeatCount="indefinite" begin="2.5s" />
+    </circle>
+    
+    <circle class="pulse" cx="150" cy="-50" r="5">
+      <animate attributeName="opacity" values="1;0;1" dur="4s" repeatCount="indefinite" begin="3s" />
+    </circle>
+    <circle class="pulse" cx="150" cy="50" r="5">
+      <animate attributeName="opacity" values="1;0;1" dur="4s" repeatCount="indefinite" begin="3.5s" />
+    </circle>
+  </g>
+</svg>

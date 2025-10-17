@@ -1,0 +1,154 @@
+/* Terms and Conditions - Black Theme */
+
+.terms-container {
+  padding-top: 110px;
+  min-height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", sans-serif;
+}
+
+.terms-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  border-bottom: 1px solid #333333;
+  background-color: #000000;
+}
+
+.terms-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0;
+  color: #ffffff;
+}
+
+.terms-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-button {
+  padding: 0.625rem 1.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.nav-button:hover {
+  background-color: #1a1a1a;
+}
+
+.nav-button-active {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+.nav-button-active:hover {
+  background-color: #059669;
+}
+
+.terms-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 3rem 5rem 3rem;
+}
+
+.terms-section {
+  margin-bottom: 2.5rem;
+}
+
+.section-titlee {
+    text-align: left;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.section-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #cccccc;
+  margin-bottom: 0.75rem;
+}
+
+.section-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.section-list {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  color: #cccccc;
+}
+
+.section-list li {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .terms-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem 1.5rem;
+  }
+
+  .terms-title {
+    font-size: 1.25rem;
+  }
+
+  .terms-nav {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .nav-button {
+    width: 100%;
+    text-align: left;
+  }
+
+  .terms-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1rem;
+  }
+
+  .section-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .terms-header {
+    padding: 1rem 1rem;
+  }
+
+  .terms-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .section-title {
+    font-size: 0.95rem;
+  }
+
+  .section-text {
+    font-size: 0.85rem;
+  }
+}

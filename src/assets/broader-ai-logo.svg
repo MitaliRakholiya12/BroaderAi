@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60">
+  <!-- Logo Background -->
+  <rect width="200" height="60" fill="transparent"/>
+  
+  <!-- B Letter with gradient -->
+  <path d="M20,10 C25,10 30,12 30,20 C30,25 27,28 25,29 C28,30 32,33 32,40 C32,50 25,52 20,52 L10,52 L10,10 L20,10 Z M20,28 C22,28 24,26 24,23 C24,20 22,18 20,18 L16,18 L16,28 L20,28 Z M20,44 C23,44 26,42 26,38 C26,34 23,32 20,32 L16,32 L16,44 L20,44 Z" fill="#5e35b1"/>
+  
+  <!-- Graphic Element -->
+  <g transform="translate(40, 20)">
+    <!-- Purple Dots -->
+    <circle cx="0" cy="0" r="3" fill="#5e35b1"/>
+    <circle cx="10" cy="-5" r="3" fill="#5e35b1"/>
+    <circle cx="20" cy="-10" r="3" fill="#5e35b1"/>
+    
+    <!-- Connection Lines -->
+    <line x1="0" y1="0" x2="10" y2="-5" stroke="#5e35b1" stroke-width="2"/>
+    <line x1="10" y1="-5" x2="20" y2="-10" stroke="#5e35b1" stroke-width="2"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="70" y="30" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#5e35b1">BROADER AI</text>
+  <text x="70" y="45" font-family="Arial, sans-serif" font-size="10" fill="#666">Tomorrow's Technology</text>
+</svg>
