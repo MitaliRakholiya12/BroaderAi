@@ -7,8 +7,9 @@ export const AdminProvider = ({ children }) => {
   const [adminEmail, setAdminEmail] = useState(null);
 
   useEffect(() => {
-    const storedEmail = localStorage.getItem('adminEmail');
-    const storedAuth = localStorage.getItem('isAdminAuthenticated');
+    const storedEmail = sessionStorage.getItem('adminEmail');
+const storedAuth = sessionStorage.getItem('isAdminAuthenticated');
+
 
     if (storedEmail && storedAuth === 'true') {
       setIsAuthenticated(true);
@@ -21,8 +22,9 @@ export const AdminProvider = ({ children }) => {
     if (email === 'admin@broaderai.com' && password === 'admin123') {
       setIsAuthenticated(true);
       setAdminEmail(email);
-      localStorage.setItem('adminEmail', email);
-      localStorage.setItem('isAdminAuthenticated', 'true');
+      sessionStorage.setItem('adminEmail', email);
+sessionStorage.setItem('isAdminAuthenticated', 'true');
+
       return true;
     }
     return false;

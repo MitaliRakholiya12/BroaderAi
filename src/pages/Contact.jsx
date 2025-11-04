@@ -15,8 +15,23 @@ const Contact = () => {
     message: "",
   });
 
+  // 🔹 Contact info fetched from MongoDB
+  const [contactInfo, setContactInfo] = useState({
+    address: "",
+    phone: "",
+    email: "",
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Fetch contact info from backend
+    fetch("http://localhost:5000/api/contact-info")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) setContactInfo(data);
+      })
+      .catch((err) => console.error("Error fetching contact info:", err));
   }, []);
 
   const handleInputChange = (e) => {
@@ -76,31 +91,6 @@ const Contact = () => {
     },
   };
 
-  const contactInfo = [
-    {
-      icon: Phone,
-      title: "Phone",
-      value: "+91 9265553255",
-      href: "tel:+919265553255",
-      gradient: "from-green-400 to-emerald-500",
-    },
-    {
-      icon: Mail,
-      title: "Email",
-      value: "contact@broaderai.com",
-      href: "mailto:contact@broaderai.com",
-      gradient: "from-blue-400 to-cyan-500",
-    },
-    {
-      icon: MapPin,
-      title: "Address",
-      value:
-        "547, Hubtown, Adajan bus depot, Adajan Patiya, Surat, Gujarat - 395009",
-      href: "https://maps.google.com/?q=547+Hubtown+Adajan+bus+depot+Adajan+Patiya+Surat+Gujarat+395009",
-      gradient: "from-purple-400 to-pink-500",
-    },
-  ];
-
   return (
     <div className="contact-page">
       {/* Background Particles */}
@@ -134,38 +124,60 @@ const Contact = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Contact Info */}
+          {/* Contact Info Section (Fetched from MongoDB) */}
           <motion.div className="contact-info-section" variants={itemVariants}>
             <h2 className="section-title">
               <span className="title-gradient">Connect</span> With Us
             </h2>
 
             <div className="contact-cards">
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={index}
-                  href={info.href}
-                  target={info.title === "Address" ? "_blank" : "_self"}
-                  rel={info.title === "Address" ? "noopener noreferrer" : ""}
-                  className="contact-card glassmorphism"
-                  whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="card-glow"></div>
-                  <div className="card-content">
-                    <div
-                      className={`icon-container bg-gradient-to-r ${info.gradient}`}
-                    >
-                      <info.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="card-text">
-                      <h3 className="card-title">{info.title}</h3>
-                      <p className="card-value">{info.value}</p>
-                    </div>
+              <motion.div
+                className="contact-card glassmorphism"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="card-content">
+                  <div className="icon-container bg-gradient-to-r from-indigo-500 to-purple-500">
+                    <MapPin className="w-6 h-6 text-white" />
                   </div>
-                  <div className="card-border"></div>
-                </motion.a>
-              ))}
+                  <div className="card-text">
+                    <h3 className="card-title">Address</h3>
+                    <p className="card-value">{contactInfo.address}</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="contact-card glassmorphism"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="card-content">
+                  <div className="icon-container bg-gradient-to-r from-green-400 to-teal-500">
+                    <Phone className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="card-text">
+                    <h3 className="card-title">Phone</h3>
+                    <p className="card-value">{contactInfo.phone}</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="contact-card glassmorphism"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="card-content">
+                  <div className="icon-container bg-gradient-to-r from-pink-500 to-rose-500">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="card-text">
+                    <h3 className="card-title">Email</h3>
+                    <p className="card-value">{contactInfo.email}</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
 
